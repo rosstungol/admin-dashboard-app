@@ -10,6 +10,8 @@ import {
 } from "@refinedev/antd"
 import "@refinedev/antd/dist/reset.css"
 
+import { authProvider, dataProvider, liveProvider } from "./provider"
+
 import routerBindings, {
   CatchAllNavigate,
   DocumentTitleHandler,
@@ -42,11 +44,11 @@ function App() {
         <AntdApp>
           <DevtoolsProvider>
             <Refine
-              // dataProvider={dataProvider(gqlClient)}
-              // liveProvider={liveProvider(wsClient)}
+              dataProvider={dataProvider}
+              liveProvider={liveProvider}
               notificationProvider={useNotificationProvider}
               routerProvider={routerBindings}
-              // authProvider={authProvider}
+              authProvider={authProvider}
               resources={[
                 {
                   name: "blog_posts",
